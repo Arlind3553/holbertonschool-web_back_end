@@ -1,15 +1,9 @@
 /*eslint-disable*/
 export default function cleanSet(set, startString) {
-  const arr = [];
-  if (typeof startString === 'undefined' || startString === '' || typeof startString !== 'string') {
-    return '';
-  }
-  set.forEach((element) => {
-    if (typeof element !== 'undefined') {
-      if (element.startsWith(startString)) {
-        arr.push(element.split(startString)[1]);
-      }
+    const filteredValues = Array.from(set).filter(value => value.startsWith(startString));
+    const resultString = filteredValues.map(value => value.slice(startString.length)).join('-');
+    if (startString == '') {
+        return '';
     }
-  });
-  return arr.join('-');
+    return resultString;
 }
