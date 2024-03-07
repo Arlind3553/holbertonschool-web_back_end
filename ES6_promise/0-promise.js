@@ -1,9 +1,6 @@
-function getResponseFromAPI() {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      resolve();
-    }, 10);
+export default function getResponseFromApi() {
+  return new Promise((resolve, reject) => {
+    resolve('');
+    reject(new Error('Something bad happend'));
   });
 }
-
-export default getResponseFromAPI;
