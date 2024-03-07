@@ -1,15 +1,14 @@
 /*eslint-disable*/
-const guardrail = (mathFunction) => {
-    const queue = [];
-    try {
-      queue.push(mathFunction());
-    } catch (error) {
-      queue.push(error.toString());
-    } finally {
-      queue.push('Guardrail was processed');
-    }
-    return queue;
-  };
-  
-  export default guardrail;
-  
+
+export default function guardrail(mathFunction) {
+  const queue = [];
+
+  try {
+    queue.push(mathFunction());
+  } catch (err) {
+    queue.push(`Error: ${err.message}`);
+  } finally {
+    queue.push("Guardrail was processed");
+  }
+  return queue;
+}
